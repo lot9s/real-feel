@@ -24,7 +24,6 @@ game = new Phaser.Game(378, 378, Phaser.AUTO, 'game', {
 /* --- classes --- */
 class Avatar {
   constructor() {
-    this.bootsOnGround = false;
     this.bootsInWater = false;
 
     this.kills = 0;
@@ -80,7 +79,6 @@ class Avatar {
 
 class Monster {
   constructor(spawnX, spawnY) {
-    this.bootsOnGround = false;
     this.ghost = false;
 
     /* sprite */
@@ -129,7 +127,7 @@ class Monster {
     }
 
     /* idle */
-    if (this.sprite.body.blocked.down) {
+    if (this.sprite.body.y >= game.world.height - this.sprite.body.height) {
       this.sprite.body.velocity.x = 0;
       this.sprite.body.velocity.y = 0;
       return;
@@ -141,7 +139,7 @@ class Monster {
     if (!this.ghost) {
       this.sprite.body.velocity.x = 10 * xDirection;
 
-      if (this.bootsOnGround) {
+      if (this.sprite.body.onFloor()) {
         this.sprite.body.velocity.y = -50;
       }
 
@@ -261,9 +259,12 @@ class Map {
 
     /* tilemap */
     this.tilemap = game.add.tilemap(tag_tilemap);
+
     this.tilemap.addTilesetImage('ld40-tiles', 'ld40-tiles', 21, 21, 2 ,2);
     this.tilemap.addTilesetImage('ld40-tiles-background',
                                  'ld40-tiles-background', 21, 21);
+
+    this.tilemap.setCollision([64,103,124,132,153,163], true, 'foreground');
 
     /* tile layers */
     this.layers = {
@@ -391,23 +392,12 @@ function handleCollisionsGoal() {
 }
 
 function handleCollisionsGround() {
-  /* reset flags */
-  avatar.bootsOnGround = false;
+  /* avatar */
+  game.physics.arcade.collide(avatar.sprite, map.layers['foreground']);
+
+  /* monsters */
   map.monsters.forEach(function(monster, indexM) {
-    monster.bootsOnGround = false;
-  });
-
-  /* do computation */
-  map.ground.forEach(function(groundObj, indexG) {
-    avatar.bootsOnGround = avatar.bootsOnGround ||
-                           game.physics.arcade.collide(avatar.sprite,groundObj);
-
-    /* monsters */
-    map.monsters.forEach(function(monster, indexM) {
-      monster.bootsOnGround = monster.bootsOnGround ||
-                              game.physics.arcade.collide(monster.sprite,
-                                                          groundObj);
-    });
+    game.physics.arcade.collide(monster.sprite, map.layers['foreground']);
   });
 }
 
@@ -467,7 +457,7 @@ function handleInput() {
                       game.cursorKeys.right.isDown;
 
   /* ground */
-  if (avatar.bootsOnGround) {
+  if (avatar.sprite.body.onFloor()) {
     /* left walk */
     if (game.cursorKeys.left.isDown) {
       avatar.sprite.body.velocity.x = -50 + (-5 * avatar.kills);

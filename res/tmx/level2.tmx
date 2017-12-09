@@ -47,19 +47,19 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,556,558,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,353,0,0,0,
-104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104,104
+103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103
 </data>
  </layer>
- <objectgroup name="ground">
+ <objectgroup name="ground" visible="0">
   <object id="1" x="0" y="357" width="672" height="21"/>
  </objectgroup>
- <objectgroup name="npc-spawn">
+ <objectgroup name="npc-spawn" visible="0">
   <object id="5" x="294" y="336" width="21" height="21"/>
  </objectgroup>
- <objectgroup name="pc-spawn">
+ <objectgroup name="pc-spawn" visible="0">
   <object id="6" x="42" y="336" width="21" height="21"/>
  </objectgroup>
- <objectgroup name="goal">
+ <objectgroup name="goal" visible="0">
   <object id="3" x="588" y="336" width="21" height="21"/>
  </objectgroup>
 </map>
