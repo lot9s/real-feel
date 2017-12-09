@@ -50,11 +50,6 @@
 132,132,132,132,132,142,142,132,132,132,132,142,142,132,132,132,132,132
 </data>
  </layer>
- <objectgroup name="ground">
-  <object id="6" x="0" y="294" width="94.5" height="84"/>
-  <object id="7" x="157.5" y="294" width="63" height="84"/>
-  <object id="8" x="283.5" y="294" width="94.5" height="84"/>
- </objectgroup>
  <objectgroup name="lava">
   <object id="9" x="94.5" y="315" width="63" height="63"/>
   <object id="10" x="220.5" y="315" width="63" height="63"/>

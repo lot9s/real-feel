@@ -50,9 +50,6 @@
 103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103
 </data>
  </layer>
- <objectgroup name="ground" visible="0">
-  <object id="1" x="0" y="357" width="672" height="21"/>
- </objectgroup>
  <objectgroup name="npc-spawn" visible="0">
   <object id="5" x="294" y="336" width="21" height="21"/>
  </objectgroup>

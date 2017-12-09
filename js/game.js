@@ -289,10 +289,9 @@ class Map {
     this.clear = false;
     this.goal = null;
     this.pcSpawn = null;
-    
-    this.ground = [];
+
     this.lava = [];
-    
+
     this.monsters.forEach(function(monster, index) {
       monster.onDeath();
     });
@@ -314,7 +313,6 @@ class Map {
 
     this.pcSpawn = null;
 
-    this.ground = [];
     this.lava = [];
 
     this.monsters = [];
@@ -347,15 +345,6 @@ class Map {
         /* npc spawn points */
         if (layerKey == 'npc-spawn') {
           self.monsters.push(new Monster(item.x, item.y));
-        }
-
-        /* ground objects */
-        if (layerKey == 'ground') {
-          game.physics.enable(objectSprite, Phaser.Physics.ARCADE);
-          objectSprite.body.collideWorldBounds = true;
-          objectSprite.body.allowGravity = false;
-
-          self.ground.push(objectSprite);
         }
 
         /* lava objects */

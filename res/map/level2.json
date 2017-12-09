@@ -24,27 +24,6 @@
         }, 
         {
          "draworder":"topdown",
-         "name":"ground",
-         "objects":[
-                {
-                 "height":21,
-                 "id":1,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":672,
-                 "x":0,
-                 "y":357
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":false,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
          "name":"npc-spawn",
          "objects":[
                 {
@@ -115,7 +94,7 @@
         {
          "columns":11,
          "firstgid":1,
-         "image":"..\/..\/..\/..\/real-feel\/res\/img\/tiles-background.png",
+         "image":"..\/img\/tiles-background.png",
          "imageheight":189,
          "imagewidth":231,
          "margin":0,
@@ -129,7 +108,7 @@
         {
          "columns":30,
          "firstgid":100,
-         "image":"..\/..\/..\/..\/real-feel\/res\/img\/tiles.png",
+         "image":"..\/img\/tiles.png",
          "imageheight":692,
          "imagewidth":692,
          "margin":2,

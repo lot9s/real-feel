@@ -50,9 +50,6 @@
 64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64
 </data>
  </layer>
- <objectgroup name="ground">
-  <object id="2" x="0" y="357" width="378" height="21"/>
- </objectgroup>
  <objectgroup name="pc-spawn">
   <object id="3" x="42" y="336" width="21" height="21"/>
  </objectgroup>

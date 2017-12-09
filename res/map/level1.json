@@ -24,49 +24,6 @@
         }, 
         {
          "draworder":"topdown",
-         "name":"ground",
-         "objects":[
-                {
-                 "height":84,
-                 "id":6,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":94.5,
-                 "x":0,
-                 "y":294
-                }, 
-                {
-                 "height":84,
-                 "id":7,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":63,
-                 "x":157.5,
-                 "y":294
-                }, 
-                {
-                 "height":84,
-                 "id":8,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":94.5,
-                 "x":283.5,
-                 "y":294
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
          "name":"lava",
          "objects":[
                 {
