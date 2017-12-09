@@ -559,40 +559,7 @@ function startNextLevel() {
 
 /* --- life cycle functions --- */
 function preload() {
-  /* tilemaps */
-  game.load.tilemap('level0', 'res/map/level0.json', null,
-                    Phaser.Tilemap.TILED_JSON);
-  game.load.tilemap('level1', 'res/map/level1.json', null,
-                    Phaser.Tilemap.TILED_JSON);
-  game.load.tilemap('level2', 'res/map/level2.json', null,
-                    Phaser.Tilemap.TILED_JSON);
-  game.load.tilemap('level3', 'res/map/level3.json', null,
-                    Phaser.Tilemap.TILED_JSON);
-  game.load.tilemap('end', 'res/map/end.json', null,
-                    Phaser.Tilemap.TILED_JSON);
-
-  /* tiles */
-  game.load.image('ld40-tiles', 'res/img/tiles.png');
-  game.load.image('ld40-tiles-background', 'res/img/tiles-background.png');
-
-  /* sprite sheets */
-  game.load.spritesheet('master-sheet', 'res/img/tiles.png', 21,21,900,2,2);
-  game.load.spritesheet('slash', 'res/img/animation-slash.png', 32,32,4);
-
-  /* particles */
-  game.load.image('star', 'res/img/particle-star.png');
-
-  /* audio */
-  game.load.audio('bgm', 'res/bgm/bgm.mp3');
-  game.load.audio('death1', 'res/sfx/death1.wav');
-  game.load.audio('death2', 'res/sfx/death2.ogg');
-  game.load.audio('death3', 'res/sfx/death3.mp3');
-  game.load.audio('death4', 'res/sfx/death4.wav');
-  game.load.audio('jump', 'res/sfx/jump.mp3');
-  game.load.audio('scream1', 'res/sfx/scream1.ogg');
-  game.load.audio('scream2', 'res/sfx/scream2.wav');
-  game.load.audio('slash', 'res/sfx/slash.wav');
-  game.load.audio('win', 'res/sfx/win.wav');
+  game.load.pack('realfeel', 'res/pack.json');
 }
 
 function create() {

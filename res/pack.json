@@ -1,0 +1,137 @@
+{
+  "realfeel" : [
+    {
+      "type": "tilemap",
+      "key": "level0",
+      "url": "res/map/level0.json",
+      "data": null,
+      "format": "TILED_JSON"
+    },
+    {
+      "type": "tilemap",
+      "key": "level1",
+      "url": "res/map/level1.json",
+      "data": null,
+      "format": "TILED_JSON"
+    },
+    {
+      "type": "tilemap",
+      "key": "level2",
+      "url": "res/map/level2.json",
+      "data": null,
+      "format": "TILED_JSON"
+    },
+    {
+      "type": "tilemap",
+      "key": "level3",
+      "url": "res/map/level3.json",
+      "data": null,
+      "format": "TILED_JSON"
+    },
+    {
+      "type": "tilemap",
+      "key": "end",
+      "url": "res/map/end.json",
+      "data": null,
+      "format": "TILED_JSON"
+    },
+    {
+      "type": "spritesheet",
+      "key": "master-sheet",
+      "url": "res/img/tiles.png",
+      "frameWidth": 21,
+      "frameHeight": 21,
+      "frameMax": 900,
+      "margin": 2,
+      "spacing": 2
+    },
+    {
+      "type": "spritesheet",
+      "key": "slash",
+      "url": "res/img/animation-slash.png",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frameMax": 4,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "image",
+      "key": "ld40-tiles",
+      "url": "res/img/tiles.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "ld40-tiles-background",
+      "url": "res/img/tiles-background.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "star",
+      "url": "res/img/particle-star.png",
+      "overwrite": false
+    },
+    {
+      "type": "audio",
+      "key": "bgm",
+      "urls": ["res/bgm/bgm.mp3"],
+      "autoDecode": true
+    },
+    {
+      "type": "audio",
+      "key": "death1",
+      "urls": ["res/sfx/death1.wav"],
+      "autoDecode": true
+    },
+    {
+      "type": "audio",
+      "key": "death2",
+      "urls": ["res/sfx/death2.ogg"],
+      "autoDecode": true
+    },
+    {
+      "type": "audio",
+      "key": "death3",
+      "urls": ["res/sfx/death3.mp3"],
+      "autoDecode": true
+    },
+    {
+      "type": "audio",
+      "key": "death4",
+      "urls": ["res/sfx/death4.wav"],
+      "autoDecode": true
+    },
+    {
+      "type": "audio",
+      "key": "jump",
+      "urls": ["res/sfx/jump.mp3"],
+      "autoDecode": true
+    },
+    {
+      "type": "audio",
+      "key": "scream1",
+      "urls": ["res/sfx/scream1.ogg"],
+      "autoDecode": true
+    },
+    {
+      "type": "audio",
+      "key": "scream2",
+      "urls": ["res/sfx/scream2.wav"],
+      "autoDecode": true
+    },
+    {
+      "type": "audio",
+      "key": "slash",
+      "urls": ["res/sfx/slash.wav"],
+      "autoDecode": true
+    },
+    {
+      "type": "audio",
+      "key": "win",
+      "urls": ["res/sfx/win.wav"],
+      "autoDecode": true
+    }
+  ]
+}
