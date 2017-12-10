@@ -290,14 +290,17 @@ class Map {
     this.goal = null;
     this.pcSpawn = null;
 
-    this.lava = [];
+    /* lava */
+    this.lava.destroy();
 
+    /* monsters */
     this.monsters.forEach(function(monster, index) {
       monster.onDeath();
     });
 
     this.monsters = [];
 
+    /* layers */
     this.layers['background'].destroy();
     this.layers['foreground'].destroy();
     this.layers = {};
@@ -313,7 +316,7 @@ class Map {
 
     this.pcSpawn = null;
 
-    this.lava = [];
+    this.lava = game.add.group();
 
     this.monsters = [];
 
@@ -353,7 +356,7 @@ class Map {
           objectSprite.body.collideWorldBounds = true;
           objectSprite.body.allowGravity = false;
 
-          self.lava.push(objectSprite);
+          self.lava.add(objectSprite);
         }
       });
     }
@@ -391,18 +394,17 @@ function handleCollisionsGround() {
 }
 
 function handleCollisionsLava() {
-  /* do computation */
-  map.lava.forEach(function(lavaObj, indexG) {
-    if (!state.restartLevel && 
-        game.physics.arcade.collide(avatar.sprite, lavaObj))
-    {
+  /* avatar */
+  game.physics.arcade.collide(map.lava, avatar.sprite, () => {
+    if (!state.restartLevel) {
       playerDeath();
     }
+  });
 
-    map.monsters.forEach(function(monster, indexM) {
-      if (game.physics.arcade.collide(monster.sprite, lavaObj)) {
-        monster.onDeath();
-      }
+  /* monsters */
+  map.monsters.forEach( (monster, index) => {
+    game.physics.arcade.collide(map.lava, monster.sprite, () => {
+      monster.onDeath();
     });
   });
 }
@@ -622,4 +624,5 @@ function update() {
 
 function render() {
   //game.debug.body(avatar.sprite);
+  //game.debug.bodyInfo(avatar.sprite, 21, 63);
 }
