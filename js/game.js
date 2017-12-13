@@ -38,6 +38,7 @@ class Avatar {
 
     /* physics */
     game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+    this.sprite.body.setSize(9,21,6,0);
     this.sprite.body.collideWorldBounds = true;
 
     /* vfx */
@@ -145,8 +146,17 @@ class Monster {
 
     /* movement ghost */
     } else {
-      if (Math.abs(avatar.sprite.x - this.sprite.x) <= 21) { xDirection = 0; }
-      if (Math.abs(avatar.sprite.y - this.sprite.y) <= 21) { yDirection = 0; }
+      if (Math.abs(avatar.sprite.x - this.sprite.x) <=
+          avatar.sprite.body.width)
+      {
+        xDirection = 0;
+      }
+
+      if (Math.abs(avatar.sprite.y - this.sprite.y) <=
+          avatar.sprite.body.height)
+      {
+        yDirection = 0;
+      }
 
       this.sprite.body.velocity.x = (15 + (5 * avatar.kills)) * xDirection;
       this.sprite.body.velocity.y = (15 + (5 * avatar.kills)) * yDirection;
