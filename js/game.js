@@ -76,6 +76,48 @@ class Avatar {
 
     this.textTerror.bringToTop();
   }
+
+  update() {
+    let arrowKeysDown = game.cursorKeys.left.isDown ||
+                        game.cursorKeys.right.isDown;
+
+    /* ground */
+    if (this.sprite.body.onFloor()) {
+      /* left walk */
+      if (game.cursorKeys.left.isDown) {
+        this.sprite.body.velocity.x = -50 + (-5 * this.kills);
+        this.sprite.animations.play('walk', 5);
+      }
+
+      /* right walk */
+      if (game.cursorKeys.right.isDown) {
+        this.sprite.body.velocity.x = 50 + (5 * this.kills);
+        this.sprite.animations.play('walk', 5);
+      }
+
+      /* jump */
+      if (game.cursorKeys.up.isDown) {
+        this.sprite.body.velocity.y = -50 + (-5 * this.kills);
+        game.sfxJump.play();
+      }
+
+      /* idle */
+      if (!arrowKeysDown) {
+        this.sprite.body.velocity.x = 0;
+        this.sprite.animations.play('idle');
+      }
+
+    /* air */
+    } else {
+      if (game.cursorKeys.left.isDown) {
+        this.sprite.body.velocity.x = -50 + (-5 * this.kills);
+      }
+
+      if (game.cursorKeys.right.isDown) {
+        this.sprite.body.velocity.x = 50 + (5 * this.kills);
+      }
+    }
+  }
 }
 
 class Monster {
@@ -453,48 +495,6 @@ function handleCollisionsWorld() {
   }
 }
 
-function handleInput() {
-  let arrowKeysDown = game.cursorKeys.left.isDown ||
-                      game.cursorKeys.right.isDown;
-
-  /* ground */
-  if (avatar.sprite.body.onFloor()) {
-    /* left walk */
-    if (game.cursorKeys.left.isDown) {
-      avatar.sprite.body.velocity.x = -50 + (-5 * avatar.kills);
-      avatar.sprite.animations.play('walk', 5);
-    }
-
-    /* right walk */
-    if (game.cursorKeys.right.isDown) {
-      avatar.sprite.body.velocity.x = 50 + (5 * avatar.kills);
-      avatar.sprite.animations.play('walk', 5);
-    }
-
-    /* jump */
-    if (game.cursorKeys.up.isDown) {
-      avatar.sprite.body.velocity.y = -50 + (-5 * avatar.kills);
-      game.sfxJump.play();
-    }
-
-    /* idle */
-    if (!arrowKeysDown) {
-      avatar.sprite.body.velocity.x = 0;
-      avatar.sprite.animations.play('idle');
-    }
-
-  /* air */
-  } else {
-    if (game.cursorKeys.left.isDown) {
-      avatar.sprite.body.velocity.x = -50 + (-5 * avatar.kills);
-    }
-
-    if (game.cursorKeys.right.isDown) {
-      avatar.sprite.body.velocity.x = 50 + (5 * avatar.kills);
-    }
-  }
-}
-
 function playerDeath(type) {
   /* update state */
   state.restartLevel = true;
@@ -624,7 +624,7 @@ function update() {
   handleCollisionsGoal();
 
   /* player update */
-  handleInput();
+  avatar.update();
 
   /* non-player update */
   map.monsters.forEach(function(monster, indexM) {
